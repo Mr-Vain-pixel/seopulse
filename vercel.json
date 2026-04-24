@@ -1,0 +1,16 @@
+{
+  "functions": {
+    "app/api/crawl/route.js": {
+      "maxDuration": 60
+    },
+    "app/api/analyse/route.js": {
+      "maxDuration": 30
+    },
+    "app/api/keywords/route.js": {
+      "maxDuration": 30
+    },
+    "app/api/backlinks/route.js": {
+      "maxDuration": 30
+    }
+  }
+}
