@@ -51,3 +51,10 @@ drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute procedure public.handle_new_user();
+
+-- Neue Spalten für Stripe/PayPal (einmalig ausführen)
+alter table public.profiles
+  add column if not exists stripe_customer_id text,
+  add column if not exists stripe_subscription_id text,
+  add column if not exists paypal_subscription_id text,
+  add column if not exists plan_started_at timestamptz;
